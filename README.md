@@ -1,3 +1,7 @@
+# Ant-Design Playground
+
+This is basic playground to test, create and explore ideas for frontend design or architectures.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

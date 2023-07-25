@@ -1,20 +1,27 @@
 {
-  "name": "homie-pay",
+  "name": "antd-playground",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
+    "@tanstack/react-query": "^4.29.19",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+    "@types/lodash": "^4.14.195",
     "@types/node": "^16.18.38",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
+    "antd": "^5.7.0",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "zod": "^3.21.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,8 +32,25 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "prettier"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "camelcase": "error",
+      "spaced-comment": "error",
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "no-duplicate-imports": "error",
+      "semi": [
+        "error",
+        "never"
+      ],
+      "@typescript-eslint/semi": "off",
+      "no-unexpected-multiline": "error"
+    }
   },
   "browserslist": {
     "production": [
@@ -39,5 +63,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^4.29.9",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "3.0.0"
   }
 }

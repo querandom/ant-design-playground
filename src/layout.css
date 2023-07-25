@@ -1,0 +1,9 @@
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.nav-links a.active {
+  color: yellow;
+}

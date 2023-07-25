@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+
+import { PageContainer } from './layout'
+import { QueryClient, QueryClientProvider } from './libs/query'
+import { BillsPage } from 'pages/bills'
+import { CreateBillPage } from 'pages/create-bill'
+import { BillDetailPage } from 'pages/bill-detail'
+import { routes } from 'state/location/routes'
+import { RouterProvider, createBrowserRouter } from 'state/location/route'
+import { Link } from 'react-router-dom'
+import { HomePage } from 'pages/home'
+
+const queryClient = new QueryClient()
+
+const ErrorElement = () => {
+  return (
+    <>
+      Error Rendering the page <Link to={routes.home}>Go Home</Link>
+    </>
+  )
+}
+
+const router = createBrowserRouter([
+  {
+    element: <PageContainer />,
+    children: [
+      {
+        path: routes.home,
+        element: <HomePage />,
+      },
+      {
+        path: routes.bills,
+        element: <BillsPage />,
+      },
+      {
+        path: routes.billCreate,
+        element: <CreateBillPage />,
+      },
+      {
+        path: routes.billDetail,
+        element: <BillDetailPage />,
+        errorElement: <ErrorElement />,
+      },
+    ],
+  },
+])
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  )
 }
 
-export default App;
+export default App
